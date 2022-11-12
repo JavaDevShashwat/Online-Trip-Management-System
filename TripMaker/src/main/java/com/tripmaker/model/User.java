@@ -1,5 +1,6 @@
 package com.tripmaker.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class User {
 	private Integer userId;
 	private String userEmail;
 	private String userMobile;
-	private String userPassword;;
+	private String userPassword;
 	private String userType;
 	
 	@JsonIgnore
@@ -49,4 +50,8 @@ public class User {
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Booking> bookings = new ArrayList<>();
+	
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+	private List<Admin> admins = new ArrayList<>();
 }

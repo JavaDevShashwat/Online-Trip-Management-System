@@ -1,13 +1,12 @@
 package com.tripmaker.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tripmaker.exception.LoginException;
-import com.tripmaker.exception.TravelException;
+import com.tripmaker.exception.TravelsException;
 import com.tripmaker.model.CurrentCustomerSession;
 import com.tripmaker.model.Travels;
 import com.tripmaker.model.User;
@@ -29,7 +28,7 @@ public class TravelServiceImpl implements TravelService{
 	
 
 	@Override
-	public Travels addTravels(Travels travel, String key) throws TravelException {
+	public Travels addTravels(Travels travel, String key) throws TravelsException {
 		// TODO Auto-generated method stub
 		Optional<CurrentCustomerSession> currUserOpt = CustomerSessionDAO.findByUuid(key);
 
@@ -50,7 +49,7 @@ public class TravelServiceImpl implements TravelService{
 	}
 
 	@Override
-	public Travels updateTravel(Travels travel, String key) throws TravelException {
+	public Travels updateTravel(Travels travel, String key) throws TravelsException {
 		// TODO Auto-generated method stub
 		Optional<CurrentCustomerSession> currUserOpt = CustomerSessionDAO.findByUuid(key);
 
@@ -69,7 +68,7 @@ public class TravelServiceImpl implements TravelService{
 	}
 
 	@Override
-	public String removeTravel(Travels travel, String key) throws TravelException {
+	public String removeTravel(Travels travel, String key) throws TravelsException {
 		// TODO Auto-generated method stub
 		Optional<CurrentCustomerSession> currUserOpt = CustomerSessionDAO.findByUuid(key);
 
@@ -89,7 +88,7 @@ public class TravelServiceImpl implements TravelService{
 	}
 
 	@Override
-	public Travels searchTravels(Integer travelId, String key) throws TravelException {
+	public Travels searchTravels(Integer travelId, String key) throws TravelsException {
 		// TODO Auto-generated method stub
 		Optional<CurrentCustomerSession> currUserOpt = CustomerSessionDAO.findByUuid(key);
 

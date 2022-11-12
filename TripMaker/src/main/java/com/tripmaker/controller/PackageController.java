@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tripmaker.exception.LoginException;
 import com.tripmaker.exception.PackageException;
 import com.tripmaker.model.Package;
-import com.tripmaker.repository.PackageDAO;
 import com.tripmaker.service.CustomerLoginService;
 import com.tripmaker.service.PackageService;
 
