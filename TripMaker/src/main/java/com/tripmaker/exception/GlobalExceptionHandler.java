@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
@@ -88,8 +87,8 @@ public class GlobalExceptionHandler {
 		
 	}
 	
-	@ExceptionHandler(TravelException.class)
-	public ResponseEntity<MyErrorDetail> ticketExceptionHandler(TravelException tException, WebRequest req) {
+	@ExceptionHandler(TravelsException.class)
+	public ResponseEntity<MyErrorDetail> ticketExceptionHandler(TravelsException tException, WebRequest req) {
 		
 		MyErrorDetail err= new MyErrorDetail();
 		err.setTimestamp(LocalDateTime.now());
