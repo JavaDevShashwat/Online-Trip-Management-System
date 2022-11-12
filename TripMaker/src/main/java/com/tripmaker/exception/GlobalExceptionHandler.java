@@ -111,7 +111,25 @@ public class GlobalExceptionHandler {
 		
 	}
 	
-	
+	@ExceptionHandler(BusException.class)
+	public ResponseEntity<MyErrorDetails> busExceptionHandler(BusException be,WebRequest req){
+		MyErrorDetails myE=new MyErrorDetails();
+		myE.setTimestamp(LocalDateTime.now());
+		myE.setMessage(be.getMessage());
+		myE.setDescription(req.getDescription(false));
+		
+		return new ResponseEntity<MyErrorDetails>(myE,HttpStatus.BAD_REQUEST);
+	}
+
+	@ExceptionHandler(HotelException.class)
+	public ResponseEntity<MyErrorDetails> hotelExceptionHandler(HotelException he,WebRequest req){
+		MyErrorDetails myE=new MyErrorDetails();
+		myE.setTimestamp(LocalDateTime.now());
+		myE.setMessage(he.getMessage());
+		myE.setDescription(req.getDescription(false));
+		
+		return new ResponseEntity<MyErrorDetails>(myE,HttpStatus.BAD_REQUEST);
+	}
 	
 	
 }
