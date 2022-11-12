@@ -11,14 +11,14 @@ import com.tripmaker.exception.LoginException;
 import com.tripmaker.model.CurrentAdmin;
 import com.tripmaker.model.Customer;
 import com.tripmaker.repository.CurrentAdminRepository;
-import com.tripmaker.repository.CustomerRepository;
+import com.tripmaker.repository.CustomerDao;
 
 //Yedhu Nanthan.S
 @Service
 public class CustomerServicesImpl implements CustomerServices{
 
 	@Autowired
-	private CustomerRepository customerDao;
+	private CustomerDao customerDao;
 	
 	@Autowired
 	private CurrentAdminRepository currentAdminRepository;
