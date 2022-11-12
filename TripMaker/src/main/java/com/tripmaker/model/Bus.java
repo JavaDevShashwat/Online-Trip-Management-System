@@ -38,11 +38,11 @@ public class Bus {
 	@NotNull
 	private Integer capacity; 
 	
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	List<Travels> travels=new ArrayList<>();
 	
-//	@ManyToMany(cascade = CascadeType.ALL)
-//	List<Travels> travels=new ArrayList<>();
-//	
-//	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "buses")
-//	List<Route> routes=new ArrayList<>();
+	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "buses")
+	List<Route> routes=new ArrayList<>();
 	
 }

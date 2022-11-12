@@ -9,20 +9,13 @@ import org.springframework.stereotype.Service;
 import com.tripmaker.exception.BusException;
 import com.tripmaker.model.Bus;
 import com.tripmaker.repository.BusRepo;
-import com.tripmaker.repository.RouteRepo;
-import com.tripmaker.repository.UserRepo;
 
 @Service
 public class BusServiceImpl implements BusService {
 	
-	@Autowired
-	private RouteRepo routeRepo;
 	
 	@Autowired
 	private BusRepo busRepo;
-	
-	@Autowired
-	private UserRepo userRepo;
 
 	@Override
 	public Bus addAnewBus(Bus bus) throws BusException {
