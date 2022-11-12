@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tripmaker.exception.LoginException;
 import com.tripmaker.exception.ReportException;
 import com.tripmaker.model.Report;
-import com.tripmaker.services.ReportServices;
+import com.tripmaker.service.ReportServices;
+
 
 //Yedhu Nanthan.S
 @RestController

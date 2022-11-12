@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tripmaker.exception.AdminException;
 import com.tripmaker.model.Admin;
 import com.tripmaker.model.AdminDTO;
-import com.tripmaker.services.AdminServices;
+import com.tripmaker.service.AdminServices;
 
 //Yedhu Nanthan.S
 @RestController

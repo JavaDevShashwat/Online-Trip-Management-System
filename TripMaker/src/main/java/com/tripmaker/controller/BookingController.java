@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tripmaker.exception.BookingException;
 import com.tripmaker.model.Booking;
-import com.tripmaker.services.BookingServices;
+import com.tripmaker.service.BookingServices;
+
 
 @RestController
 public class BookingController {

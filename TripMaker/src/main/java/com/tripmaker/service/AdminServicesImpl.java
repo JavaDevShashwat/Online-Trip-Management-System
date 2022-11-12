@@ -12,7 +12,7 @@ import com.tripmaker.model.Admin;
 import com.tripmaker.model.AdminDTO;
 import com.tripmaker.model.User;
 import com.tripmaker.repository.AdminRepository;
-import com.tripmaker.repository.UserRepository;
+import com.tripmaker.repository.UserDao;
 
 //Yedhu Nanthan.S
 @Service
@@ -22,7 +22,7 @@ public class AdminServicesImpl implements AdminServices{
 	private AdminRepository adminDao;
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserDao userRepository;
 	
 	@Override
 	public Admin addAdmin(AdminDTO admin) throws AdminException {
