@@ -114,7 +114,7 @@ public class FeedbackServiceImp implements FeedbackService{
 	@Override
 	public List<Feedback> viewAllFeedbacks() throws FeedbackException {
 		
-		List<Feedback> ansList=feedbackRepo.getAllFeedbacks();
+		List<Feedback> ansList=feedbackRepo.findAll();
 		
 		return ansList;
 
