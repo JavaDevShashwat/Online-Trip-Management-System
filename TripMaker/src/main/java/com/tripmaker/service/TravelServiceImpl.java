@@ -1,6 +1,5 @@
 package com.tripmaker.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +28,16 @@ public class TravelServiceImpl implements TravelService{
 	
 
 	@Override
-	public Travels addTravels(Travels travel, String key) throws LoginException  {
+	public Travels addTravels(Travels travel, String key) throws TravelsException {
 		// TODO Auto-generated method stub
 		Optional<CurrentCustomerSession> currUserOpt = CustomerSessionDAO.findByUuid(key);
 
 		if (currUserOpt.isPresent()) {
 			CurrentCustomerSession currUser1 = currUserOpt.get();
 			Optional<User> loggedInUser = userDao.findById(currUser1.getId());
+			
+			
+			travel.getUsers().add(loggedInUser.get());
 			
 			Travels addedtravel = travelDAO.save(travel);
 			return addedtravel;
@@ -53,7 +55,9 @@ public class TravelServiceImpl implements TravelService{
 
 		if (currUserOpt.isPresent()) {
 			CurrentCustomerSession currUser1 = currUserOpt.get();
+			Optional<User> loggedInUser = userDao.findById(currUser1.getId());
 			
+			travel.getUsers().add(loggedInUser.get());
 			Travels addedtravel = travelDAO.save(travel);
 			return addedtravel;
 			
@@ -64,16 +68,18 @@ public class TravelServiceImpl implements TravelService{
 	}
 
 	@Override
-	public String removeTravel(Integer travelId, String key) throws TravelsException {
+	public String removeTravel(Travels travel, String key) throws TravelsException {
 		// TODO Auto-generated method stub
 		Optional<CurrentCustomerSession> currUserOpt = CustomerSessionDAO.findByUuid(key);
 
 		if (currUserOpt.isPresent()) {
 			CurrentCustomerSession currUser1 = currUserOpt.get();
+			Optional<User> loggedInUser = userDao.findById(currUser1.getId());
 			
-			Optional<Travels> travel = travelDAO.findById(travelId);
 			
-			travelDAO.delete(travel.get());
+			travel.getUsers().add(loggedInUser.get());
+			
+			travelDAO.delete(travel);
 			return "Travel is remove successfully";
 		}
 		else {
@@ -82,7 +88,7 @@ public class TravelServiceImpl implements TravelService{
 	}
 
 	@Override
-	public List<Travels> searchTravels(String key) throws TravelsException {
+	public Travels searchTravels(Integer travelId, String key) throws TravelsException {
 		// TODO Auto-generated method stub
 		Optional<CurrentCustomerSession> currUserOpt = CustomerSessionDAO.findByUuid(key);
 
@@ -90,13 +96,11 @@ public class TravelServiceImpl implements TravelService{
 			CurrentCustomerSession currUser1 = currUserOpt.get();
 			
 			
-			List<Travels> travels = travelDAO.findAll();
+			Optional<Travels> travels = travelDAO.findById(travelId);
 			
-			return travels;
+			return travels.get();
 		}
 		throw new LoginException("Please login to your account");
 	}
-
-	
 
 }

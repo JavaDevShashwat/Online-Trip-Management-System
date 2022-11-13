@@ -41,9 +41,7 @@ public class Customer {
 	private String password;;
 	private String userType;
 	
-	
-//	@OneToMany(cascade = CascadeType.ALL)
-//	private List<Feedback> feedbacks = new ArrayList<>();
+
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Booking> bookings = new  ArrayList<>();
