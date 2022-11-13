@@ -10,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,6 +38,7 @@ public class Report {
 	@NotEmpty(message = "reportType is mandatory")
 	private String reportType;
 	
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Admin admin;
 }
