@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,9 +32,10 @@ public class Admin {
 	private String password;
 	private String mobial;
 	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Report> reports = new HashSet<>();
-	
+	@JsonIgnore
 	@ManyToOne(cascade =  CascadeType.ALL)
 	private User user;
 
