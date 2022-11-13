@@ -12,7 +12,5 @@ import com.tripmaker.model.Feedback;
 @Repository
 public interface FeedbackRepo extends JpaRepository<Feedback,Integer>{
 	
-	@Query("select * from Feedback")
-	public List<Feedback> getAllFeedbacks() throws FeedbackException;
 	
 }
