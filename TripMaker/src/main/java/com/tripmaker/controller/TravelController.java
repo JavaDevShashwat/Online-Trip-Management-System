@@ -1,6 +1,8 @@
 package com.tripmaker.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,10 +51,10 @@ public class TravelController {
 	}
 	
 	@DeleteMapping("/traveldelete")
-	public String deleteTravel(@RequestBody Travels travel, @RequestParam String key) throws TravelsException {
+	public String deleteTravel(@RequestParam Integer travelId, @RequestParam String key) throws TravelsException {
 		
 		if(customerLoginService.isLoggedInByUUID(key)) {
-			return travelService.removeTravel(travel, key);
+			return travelService.removeTravel(travelId, key);
 		}
 		else {
 			throw new LoginException("Please login to youur account");
@@ -61,10 +63,10 @@ public class TravelController {
 	}
 	
 	@PostMapping("/gettravel")
-	public Travels getAllTravels(@RequestParam Integer travelId, @RequestParam String key) throws TravelsException {
+	public List<Travels> getAllTravels(@RequestParam String key) throws TravelsException {
 		
 		if(customerLoginService.isLoggedInByUUID(key)) {
-			return travelService.searchTravels(travelId, key);
+			return travelService.searchTravels(key);
 		}
 		else {
 			throw new LoginException("Please login to youur account");
