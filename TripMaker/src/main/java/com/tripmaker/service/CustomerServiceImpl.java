@@ -63,6 +63,12 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Customer updateCustomer(CustomerSigninDTO customersigninDto, String key) {
 		Optional<CurrentCustomerSession> optCurrcustomer = CustomerSessionDAO.findByUuid(key);
+		
+		if (!optCurrcustomer.isPresent()) {
+
+			throw new RuntimeException("Unauthorised access");
+		}
+
 		Customer customer = new Customer();
 		customer.setCustomerName(customersigninDto.getCustomerName());
 		customer.setPassword(customersigninDto.getPassword());
@@ -70,11 +76,6 @@ public class CustomerServiceImpl implements CustomerService {
 		customer.setEmail(customersigninDto.getEmail());
 		customer.setAddress(customersigninDto.getAddress());
 		customer.setUserType("customer");
-		if (!optCurrcustomer.isPresent()) {
-
-			throw new RuntimeException("Unauthorised access");
-		}
-
 		return CustomerDao.save(customer);
 	}
 
