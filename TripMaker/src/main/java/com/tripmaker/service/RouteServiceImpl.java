@@ -41,7 +41,7 @@ public class RouteServiceImpl implements RouteService {
 			if(opt2.isPresent()) {
 				Route route = opt.get();
 				Bus bus = opt2.get();
-				route.setBus(bus);
+				route.getBus().add(bus);
 				
 				TicketDetails ticketDetails = new TicketDetails();
 				ticketDetails.setRoute(route);

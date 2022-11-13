@@ -29,7 +29,7 @@ import lombok.ToString;
 public class Bus {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer busId;
 	@NotNull
 	private String busType;
@@ -38,11 +38,12 @@ public class Bus {
 	@NotNull
 	private Integer capacity; 
 	
+	@JsonIgnore
+	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "bus")
+	List<Travels> travels=new ArrayList<>();
 	
-//	@ManyToMany(cascade = CascadeType.ALL)
-//	List<Travels> travels=new ArrayList<>();
-//	
-//	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "buses")
-//	List<Route> routes=new ArrayList<>();
+	@JsonIgnore
+	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "bus")
+	List<Route> routes=new ArrayList<>();
 	
 }
