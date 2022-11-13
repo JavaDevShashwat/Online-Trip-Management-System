@@ -51,5 +51,10 @@ public class Customer {
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	private User user;
+	
+	//FeedBack List is added
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	private List<Feedback> feedbacks = new ArrayList<>();
 
 }
