@@ -17,3 +17,6 @@ User should  be able to perform below operations:
 4. Book / Print / Cancel  Tickets
 5. Payment  
 6. Provide/View Testimonials 
+
+# ER-Diagram
+![Blank diagram](https://user-images.githubusercontent.com/62950509/202426426-35967603-2fdd-4c67-ae62-3f30a88f5eee.jpeg)
