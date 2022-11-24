@@ -22,3 +22,4 @@ User should  be able to perform below operations:
 Application will be developed in following Sprints –
 1.	Core Java +JPA with Hibernate 
 2.	Spring Boot + Rest Controller + JPA with Hibernate
+![Blank diagram](https://user-images.githubusercontent.com/62950509/203727704-37f7baa5-4133-41b8-8235-746e9a909223.jpeg)
